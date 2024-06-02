@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            flex-direction: column; /* Arrange forms vertically */
+            gap: 20px; /* Space between forms */
+            padding: 20px;
+        }
+        .form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Set a fixed width for forms */
+        }
+        .form h1, .form h3 {
+            margin-top: 0;
+        }
+        .form input, .form textarea, .form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        .form textarea {
+            height: 100px; /* Set a height for the textarea */
+            resize: vertical; /* Allow vertical resizing */
+        }
+        .form button {
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+        }
+        .form button:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="form" action="CarData.php" method="post">
+
+            <h1>Car Information</h1>
+            <h3>Car Type</h3>
+            <input type="text" placeholder="Car Type" required name="car_type">
+            <h3>Car Number</h3>
+            <input type="text" placeholder="Car Number" required name="car_number">
+            <h3>Car Model</h3>
+            <input type="text" placeholder="Car Model" required name="car_model">
+            <h3>Serial Number</h3>
+            <input type="text" placeholder="Serial Number" required name="serial_number">
+
+            <h3>Car Date</h3>
+            <input type="date" required name="car_Date">
+            <h3>Oil</h3>
+            <input type="text" placeholder="Oil" required name="oil">
+            <h3>Battery</h3>
+            <input type="text" placeholder="Battery" required name="battery">
+            <h3>Covers</h3>
+            <input type="text" placeholder="Covers" required name="Covers">
+
+            <h1>Next Maintenance</h1>
+            <h3>Maintenance Date</h3>
+            <input type="date" required name="maintenance_date">
+            <h3>Maintenance Details</h3>
+            <textarea placeholder="Describe the next maintenance..." required name="maintenance_details"></textarea>
+
+            <h1>Previous Maintenance</h1>
+            <h3>Maintenance Date</h3>
+            <input type="date" required name="previous_maintenance_date">
+            <h3>Maintenance Details</h3>
+            <textarea placeholder="Describe the previous maintenance..." required name="previous_maintenance_details"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

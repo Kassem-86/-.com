@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .header {
+            margin: 20px 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: none; /* Initially hidden */
+            flex-direction: column;
+            gap: 20px;
+        }
+        .form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .form h3 {
+            margin-top: 0;
+        }
+        .form input, .form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        .form button {
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+        }
+        .form button:hover {
+            background-color: black;
+        }
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .qr-code-img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = [...document.querySelector('.form').children];
+            form.forEach((item, i) => {
+                setTimeout(() => {
+                    item.style.opacity = 1;
+                }, i * 70);
+            });
+
+            const scanButton = document.getElementById('scan-btn');
+            const modal = document.getElementById('myModal');
+            const closeBtn = document.getElementsByClassName('close')[0];
+
+            scanButton.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+
+        function checkk() {
+            var Emmm = document.getElementById('mm');
+            var pp = document.getElementById('pp');
+
+            if(Emmm.value == ""){
+                alert("You did not enter an Email \nPlease enter one now");
+                Emmm.focus();
+                return false;
+            }
+            else if (pp.value ==""){
+                alert ("You did not enter a Password \nPlease enter one now");
+                pp.focus();
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+
+        function toHomePage(){
+            if(checkk()){
+                window.location.href = 'home_Page.html';
+            }
+        }
+    </script>
+</head>
+<body>
+    <form class="form" action="Signinproc.php" method="post">
+        <h1 class="heading" style="color: black;">log<span style="color: rgb(0, 0, 0);">in</span></h1>
+        <input type="text" placeholder="username" autocomplete="off" class="Name" id="fname" required name="username">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit" class="sub">log in</button>
+        <button type="button" id="scan-btn" style="background-color: black; color: white;">Scan QR Code</button>
+    </form>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="qr-code.png" alt="QR Code" class="qr-code-img">
+        </div>
+    </div>
+</body>
+</html>
