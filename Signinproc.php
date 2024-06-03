@@ -13,9 +13,9 @@ $res = mysqli_query($con, $query);
 
 if (mysqli_num_rows($res) >= 1) {
     echo '<script>alert("Signed in successfully")</script>';
-    require "test2.html";
+    require "option.html";
 } else {
-    echo '<script>alert("Incorrect admin username or ]")</script>';
+    echo '<script>alert("Incorrect admin username or password")</script>';
     require 'logIn.html';
 }
 

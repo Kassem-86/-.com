@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Car ID</title>
+    <title>البحث عن رقم السيارة</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,6 +26,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            text-align: right;
         }
         .search-bar {
             display: flex;
@@ -39,6 +40,7 @@
             padding: 10px;
             border: none;
             outline: none;
+            text-align: right;
         }
         .search-bar button {
             padding: 10px;
@@ -54,10 +56,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Search Car ID</h1>
+        <h1>البحث عن رقم السيارة</h1>
         <form class="search-bar" action="searchCarID.php" method="post">
-            <input type="text" placeholder="Enter Car ID" id="car-id" name="car-id" required>
-            <button type="submit">Search</button>
+            <input type="text" placeholder="أدخل كود السيارة" id="car-id" name="car-id" required>
+            <button type="submit">بحث</button>
         </form>
     </div>
 
@@ -65,10 +67,10 @@
         function searchCar() {
             const carId = document.getElementById('car-id').value;
             if(carId) {
-                alert(`Searching for Car ID: ${carId}`);
-                // Add your search logic here
+                alert(`جاري البحث عن كود السيارة: ${carId}`);
+                // أضف منطق البحث هنا
             } else {
-                alert('Please enter a Car ID');
+                alert('الرجاء إدخال كود السيارة');
             }
         }
     </script>

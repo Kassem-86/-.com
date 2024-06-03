@@ -13,7 +13,7 @@ if (isset($_POST['car-id'])) {
 
     // Check connection
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die("فشل الاتصال: " . $conn->connect_error);
     }
 
     // SQL query to search for the car ID
@@ -28,13 +28,13 @@ if (isset($_POST['car-id'])) {
         $car = $result->fetch_assoc();
         header("Location: displayCarData.php?car-id=" . $car['id']);
     } else {
-        echo "<script>alert('Car ID not found'); window.location.href = 'searchCarID.html';</script>";
+        echo "<script>alert('لم يتم العثور على كود السيارة'); window.location.href = 'QR.html';</script>";
     }
 
     // Close connection
     $stmt->close();
     $conn->close();
 } else {
-    echo "<script>alert('Car ID not provided'); window.location.href = 'searchCarID.html';</script>";
+    echo "<script>alert('لم يتم توفير كود السيارة'); window.location.href = 'searchCarID.html';</script>";
 }
 ?>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Information System</title>
+    <title>نظام معلومات السيارة</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,14 +45,14 @@
 </head>
 <body>
     <div class="container">
-       <a href="test2 - py.html"><button type="button" class="button">Insert Car</button></a>
-       <button type="button" class="button" onclick="showQRCode()">Scan QR Code</button>
+       <a href="test2.html"><button type="button" class="button">إدخال سيارة</button></a>
+       <button type="button" class="button" onclick="showQRCode()">QRكود</button>
     </div>
 
     <!-- Hidden QR Code popup -->
     <div id="qr-code-popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; box-shadow:0 0 10px rgba(0,0,0,0.1); border-radius:8px;">
-        <img src="qr-code.png" alt="QR Code" style="max-width:50%;">
-        <button onclick="closeQRCode()" class="button">Close</button>
+        <img src="qr-code.png" alt="QR" style="max-width:50%;">
+        <button onclick="closeQRCode()" class="button">إغلاق</button>
     </div>
 
     <script>

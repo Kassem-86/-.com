@@ -3,7 +3,7 @@
 $con = mysqli_connect("localhost", "root", "", "sign_in");
 
 if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
+    die("فشل الاتصال: " . mysqli_connect_error());
 }
 
 // Retrieve form data
@@ -31,22 +31,22 @@ if (is_numeric($serial_number) && is_numeric($car_number)) {
     $serial_number_result = mysqli_query($con, $check_serial_number_query);
 
     if (mysqli_num_rows($car_number_result) > 0 || mysqli_num_rows($serial_number_result) > 0) {
-        echo '<script>alert("Car Number or Serial Number already exists .")</script>';
+        echo '<script>alert("رقم السيارة أو الرقم التسلسلي موجود بالفعل.")</script>';
         require 'test2.html';
     } else {
         // Insert data into the database
         $sql = "INSERT INTO car (car_type, car_number, car_model, serial_number, car_Date, Oil, Battery, Covers, maintenance_date, maintenance_details, previous_maintenance_date, previous_maintenance_details) VALUES ('$car_type', '$car_number', '$car_model', '$serial_number', '$car_date', '$oil', '$battery', '$covers', '$maintenance_date', '$maintenance_details', '$previous_maintenance_date', '$previous_maintenance_details')";
 
         if (mysqli_query($con, $sql)) {
-            echo '<script>alert("New record created successfully")</script>';
+            echo '<script>alert("تم إنشاء سجل جديد بنجاح")</script>';
             require 'option.html';
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($con);
+            echo "خطأ: " . $sql . "<br>" . mysqli_error($con);
         }
     }
 } else {
-    echo '<script>alert("Serial Number and Car Number must be numeric.");</script>';
-    require  'test2.html';
+    echo '<script>alert("يجب أن يكون الرقم التسلسلي ورقم السيارة رقميين.");</script>';
+    require 'test2.html';
 }
 
 mysqli_close($con);

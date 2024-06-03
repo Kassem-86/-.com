@@ -2,21 +2,21 @@
 if (isset($_GET['car-id'])) {
     $carId = $_GET['car-id'];
 
-    // Database connection details
+    // تفاصيل اتصال قاعدة البيانات
     $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "sign_in";
 
-    // Create connection
+    // إنشاء اتصال
     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Check connection
+    // التحقق من الاتصال
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        die("فشل الاتصال: " . $conn->connect_error);
     }
 
-    // SQL query to fetch car data by ID
+    // استعلام SQL لجلب بيانات السيارة بواسطة ID
     $sql = "SELECT * FROM car WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $carId);
@@ -24,28 +24,28 @@ if (isset($_GET['car-id'])) {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Car data exists, fetch data
+        // بيانات السيارة موجودة، جلب البيانات
         $car = $result->fetch_assoc();
     } else {
-        echo "<script>alert('Car ID not found'); window.location.href = 'searchCarID.html';</script>";
+        echo "<script>alert('لم يتم العثور على رقم السيارة'); window.location.href = 'searchCarID.html';</script>";
         exit;
     }
 
-    // Close connection
+    // إغلاق الاتصال
     $stmt->close();
     $conn->close();
 } else {
-    echo "<script>alert('Car ID not provided'); window.location.href = 'searchCarID.html';</script>";
+    echo "<script>alert('لم يتم تقديم رقم السيارة'); window.location.href = 'searchCarID.html';</script>";
     exit;
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Information</title>
+    <title>معلومات السيارة</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -91,34 +91,34 @@ if (isset($_GET['car-id'])) {
 <body>
     <div class="container">
         <div class="form">
-            <h1>Car Information</h1>
-            <h3>Car Type</h3>
+            <h1>معلومات السيارة</h1>
+            <h3>نوع السيارة</h3>
             <input type="text" value="<?php echo $car['car_type']; ?>" readonly>
-            <h3>Car Number</h3>
+            <h3>رقم السيارة</h3>
             <input type="text" value="<?php echo $car['car_number']; ?>" readonly>
-            <h3>Car Model</h3>
+            <h3>موديل السيارة</h3>
             <input type="text" value="<?php echo $car['car_model']; ?>" readonly>
-            <h3>Serial Number</h3>
+            <h3>رقم السيريال</h3>
             <input type="text" value="<?php echo $car['serial_number']; ?>" readonly>
-            <h3>Car Date</h3>
+            <h3>تاريخ السيارة</h3>
             <input type="date" value="<?php echo $car['car_Date']; ?>" readonly>
-            <h3>Oil</h3>
+            <h3>الزيت</h3>
             <input type="text" value="<?php echo $car['Oil']; ?>" readonly>
-            <h3>Battery</h3>
+            <h3>البطارية</h3>
             <input type="text" value="<?php echo $car['Battery']; ?>" readonly>
-            <h3>Covers</h3>
+            <h3>الأغطية</h3>
             <input type="text" value="<?php echo $car['Covers']; ?>" readonly>
 
-            <h1>Next Maintenance</h1>
-            <h3>Maintenance Date</h3>
+            <h1>الصيانة القادمة</h1>
+            <h3>تاريخ الصيانة</h3>
             <input type="date" value="<?php echo $car['maintenance_date']; ?>" readonly>
-            <h3>Maintenance Details</h3>
+            <h3>تفاصيل الصيانة</h3>
             <textarea readonly><?php echo $car['maintenance_details']; ?></textarea>
 
-            <h1>Previous Maintenance</h1>
-            <h3>Maintenance Date</h3>
+            <h1>الصيانة السابقة</h1>
+            <h3>تاريخ الصيانة</h3>
             <input type="date" value="<?php echo $car['previous_maintenance_date']; ?>" readonly>
-            <h3>Maintenance Details</h3>
+            <h3>تفاصيل الصيانة</h3>
             <textarea readonly><?php echo $car['previous_maintenance_details']; ?></textarea>
         </div>
     </div>

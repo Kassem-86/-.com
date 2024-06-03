@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Information</title>
+    <title>معلومات السيارة</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,38 +59,38 @@
     <div class="container">
         <form class="form" action="CarData.php" method="post">
 
-            <h1>Car Information</h1>
-            <h3>Car Type</h3>
-            <input type="text" placeholder="Car Type" required name="car_type">
-            <h3>Car Number</h3>
-            <input type="text" placeholder="Car Number" required name="car_number">
-            <h3>Car Model</h3>
-            <input type="text" placeholder="Car Model" required name="car_model">
-            <h3>Serial Number</h3>
-            <input type="text" placeholder="Serial Number" required name="serial_number">
+            <h1>معلومات السيارة</h1>
+            <h3>نوع السيارة</h3>
+            <input type="text" placeholder="نوع السيارة" required name="car_type">
+            <h3>رقم السيارة</h3>
+            <input type="text" placeholder="رقم السيارة" required name="car_number">
+            <h3>موديل السيارة</h3>
+            <input type="text" placeholder="موديل السيارة" required name="car_model">
+            <h3>الرقم التسلسلي</h3>
+            <input type="text" placeholder="الرقم التسلسلي" required name="serial_number">
 
-            <h3>Car Date</h3>
+            <h3>تاريخ السيارة</h3>
             <input type="date" required name="car_Date">
-            <h3>Oil</h3>
-            <input type="text" placeholder="Oil" required name="oil">
-            <h3>Battery</h3>
-            <input type="text" placeholder="Battery" required name="battery">
-            <h3>Covers</h3>
-            <input type="text" placeholder="Covers" required name="Covers">
+            <h3>الزيت</h3>
+            <input type="text" placeholder="الزيت" required name="oil">
+            <h3>البطارية</h3>
+            <input type="text" placeholder="البطارية" required name="battery">
+            <h3>الأغطية</h3>
+            <input type="text" placeholder="الأغطية" required name="covers">
 
-            <h1>Next Maintenance</h1>
-            <h3>Maintenance Date</h3>
+            <h1>الصيانة التالية</h1>
+            <h3>تاريخ الصيانة</h3>
             <input type="date" required name="maintenance_date">
-            <h3>Maintenance Details</h3>
-            <textarea placeholder="Describe the next maintenance..." required name="maintenance_details"></textarea>
+            <h3>تفاصيل الصيانة</h3>
+            <textarea placeholder="وصف الصيانة التالية..." required name="maintenance_details"></textarea>
 
-            <h1>Previous Maintenance</h1>
-            <h3>Maintenance Date</h3>
+            <h1>الصيانة السابقة</h1>
+            <h3>تاريخ الصيانة</h3>
             <input type="date" required name="previous_maintenance_date">
-            <h3>Maintenance Details</h3>
-            <textarea placeholder="Describe the previous maintenance..." required name="previous_maintenance_details"></textarea>
+            <h3>تفاصيل الصيانة</h3>
+            <textarea placeholder="وصف الصيانة السابقة..." required name="previous_maintenance_details"></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit">إرسال</button>
         </form>
     </div>
 </body>
